@@ -1,75 +1,32 @@
-# Nuxt Minimal Starter
+# 🛒 Nuxt Market Store
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Веб-приложение для интернет-магазина. Проект сфокусирован на высокой производительности, удобном UI и корректной работе SSR.
 
-## Setup
+## ⚡️ Основной стек
+*   **Frontend:** Nuxt 3
+*   **UI-компоненты:** PrimeVue
+*   **Стилизация:** Tailwind CSS
+*   **State Management:** Pinia
+*   **Тестирование:** Vitest + Nuxt Test Utils
+*   **Инструменты:** ESLint Stylistic, TypeScript
 
-Make sure to install dependencies:
+---
 
-```bash
-# npm
-npm install
+## 🛠 Ключевые особенности
+*   **Оптимизация рендеринга:** Использование SSR и гидратации для SEO.
+*   **Продуманный UI:** Полная адаптивность, использование Ripple-эффектов и кастомных тем PrimeVue.
+*   **Управление данными:** Интеграция с API, обработка состояний загрузки и ошибок.
+*   **Качественный код:** Соблюдение стандартов ESLint и типизация TypeScript.
 
-# pnpm
-pnpm install
+---
 
-# yarn
-yarn install
+## 🔧 Технические решения (Best Practices)
+В ходе разработки были реализованы следующие технические задачи:
+1.  **Asset Management:** Настроена корректная сборка PrimeIcons для продакшна.
+2.  **Dependency Resolution:** Решены конфликты версий между `vitest` и `happy-dom`.
 
-# bun
-bun install
-```
 
-## Development Server
+---
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 👨‍💻 Автор
+**Иван Хитун**  
