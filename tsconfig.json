@@ -6,11 +6,5 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "lib": ["ESNext", "DOM"]
-    //    "paths": {
-    //      "@primeuix/themes/*": ["node_modules/@primeuix/themes/*"],
-    //      "@store": ["./store"],
-    //      "@store/*": ["./store/*"]
-    //    }
-    // ... остальные настройки
   }
 }

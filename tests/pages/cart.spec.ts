@@ -20,14 +20,15 @@ describe("Cart page", () => {
     pinia = createPinia();
     setActivePinia(pinia);
 
+    deviceStore = useDeviceStore();
+    deviceStore.getDevicesApi = vi.fn().mockResolvedValue([]);
+    basketStore = useBasketStore();
+
     wrapper = await mountSuspended(Cart, {
       global: {
         plugins: [pinia],
       },
     });
-
-    deviceStore = useDeviceStore();
-    basketStore = useBasketStore();
 
     vi.clearAllMocks();
   });

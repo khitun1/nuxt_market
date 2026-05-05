@@ -25,11 +25,9 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: [
-    'primeicons/primeicons.css',
-  ],
+  css: ["primeicons/primeicons.css"],
   build: {
-    transpile: ['primeicons']
+    transpile: ["primeicons"],
   },
   runtimeConfig: {
     public: {

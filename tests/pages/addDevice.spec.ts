@@ -14,14 +14,15 @@ describe("Add device page", () => {
     pinia = createPinia();
     setActivePinia(pinia);
 
+    deviceStore = useDeviceStore();
+    deviceStore.createType = vi.fn();
+    deviceStore.toast = { add: vi.fn() } as unknown as ToastServiceMethods;
+
     wrapper = await mountSuspended(AddDevice, {
       global: {
         plugins: [pinia],
       },
     });
-    deviceStore = useDeviceStore();
-    deviceStore.createType = vi.fn();
-    deviceStore.toast = { add: vi.fn() } as unknown as ToastServiceMethods;
 
     vi.clearAllMocks();
   });

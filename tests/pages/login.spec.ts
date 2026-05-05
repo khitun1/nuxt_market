@@ -15,13 +15,13 @@ describe("Login page - change form", () => {
   beforeEach(async () => {
     pinia = createPinia();
     setActivePinia(pinia);
+    userStore = useUserStore();
+
     wrapper = await mountSuspended(Login, {
       global: {
         plugins: [pinia],
       },
     });
-
-    userStore = useUserStore();
   });
 
   it("double change", async () => {

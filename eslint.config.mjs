@@ -2,7 +2,6 @@ import withNuxt from "./.nuxt/eslint.config.mjs";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default withNuxt(eslintPluginPrettierRecommended, {
-  // Здесь вы можете добавлять свои правила
   rules: {
     quotes: ["error", "double"],
     "no-console": "error",
