@@ -23,6 +23,7 @@ export default withNuxt([
       "object-shorthand": "error",
       "no-constant-condition": ["error", { checkLoops: true }],
       "vue/multi-word-component-names": "off",
+      "linebreak-style": "off",
     },
   },
 ]);
