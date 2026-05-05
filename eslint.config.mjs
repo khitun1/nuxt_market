@@ -1,9 +1,14 @@
 import withNuxt from "./.nuxt/eslint.config.mjs";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import tseslint from "typescript-eslint";
 
 export default withNuxt([
   eslintPluginPrettierRecommended,
   {
+    plugins: {
+      // Явно указываем плагин, чтобы правила @typescript-eslint работали
+      "@typescript-eslint": tseslint.plugin,
+    },
     rules: {
       quotes: ["error", "double"],
       "no-console": "error",
