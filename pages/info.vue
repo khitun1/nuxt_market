@@ -1,9 +1,9 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Контакты | Nuxt Store',
-  ogTitle: 'Контакты | Nuxt Store',
-  description: 'Свяжитесь с нами. Информация о магазине Nuxt Store, адрес и контакты.',
-  ogDescription: 'Свяжитесь с нами. Информация о магазине Nuxt Store, адрес и контакты.',
+  title: 'Contacts | Nuxt Store',
+  ogTitle: 'Contacts | Nuxt Store',
+  description: 'Contact us. Information about Nuxt Store, address and contacts.',
+  ogDescription: 'Contact us. Information about Nuxt Store, address and contacts.',
 })
 </script>
 

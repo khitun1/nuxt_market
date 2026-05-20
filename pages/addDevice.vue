@@ -35,7 +35,7 @@ const type = ref(deviceStore.getTypes[0]);
 const brand = ref(deviceStore.getBrands[0]);
 
 useSeoMeta({
-  title: 'Добавить товар | Панель управления',
+  title: 'Add Product | Admin Panel',
   robots: 'noindex, nofollow',
 })
 

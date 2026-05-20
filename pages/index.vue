@@ -49,23 +49,23 @@ const clearFilters = async () => {
 };
 
 useSeoMeta({
-  title: 'Главная | Nuxt Store',
-  ogTitle: 'Главная | Nuxt Store',
-  description: 'Добро пожаловать в наш магазин электроники. Лучшие товары по выгодным ценам.',
-  ogDescription: 'Добро пожаловать в наш магазин электроники. Лучшие товары по выгодным ценам.',
+  title: 'Home | Nuxt Store',
+  ogTitle: 'Home | Nuxt Store',
+  description: 'Welcome to our electronics store. Best products at great prices.',
+  ogDescription: 'Welcome to our electronics store. Best products at great prices.',
 })
 </script>
 
 <template>
   <div class="container">
-    <h1 class="visually-hidden">Каталог электроники Nuxt Store</h1>
+    <h1 class="visually-hidden">Nuxt Store Electronics Catalog</h1>
     
-    <section id="search-section" aria-label="Поиск товаров">
+    <section id="search-section" aria-label="Product search">
       <form id="searchForm" @submit.prevent="test">
         <InputText
           id="search"
           v-model="searchDevice"
-          placeholder="Введите название товара..."
+          placeholder="Enter product name..."
           tabindex="0"
           list="devicesList"
         />
@@ -76,16 +76,16 @@ useSeoMeta({
             </option>
           </template>
         </datalist>
-        <Button label="Найти" icon="pi pi-search" type="submit" tabindex="0" />
+        <Button label="Search" icon="pi pi-search" type="submit" tabindex="0" />
       </form>
     </section>
 
-    <section id="filters-section" aria-label="Фильтры товаров">
+    <section id="filters-section" aria-label="Product filters">
       <div id="filters">
         <div>
-          <label for="searchType">Тип:</label>
+          <label for="searchType">Type:</label>
           <select id="searchType" v-model="searchType" @change="getDevices">
-            <option value="">Все типы</option>
+            <option value="">All types</option>
             <option
               v-for="type in deviceStore.getTypes"
               :key="type.id"
@@ -96,9 +96,9 @@ useSeoMeta({
           </select>
         </div>
         <div>
-          <label for="searchBrand">Бренд:</label>
+          <label for="searchBrand">Brand:</label>
           <select id="searchBrand" v-model="searchBrand" @change="getDevices">
-            <option value="">Все бренды</option>
+            <option value="">All brands</option>
             <option
               v-for="brand in deviceStore.getBrands"
               :key="brand.id"
@@ -109,12 +109,12 @@ useSeoMeta({
           </select>
         </div>
         <div>
-          <Button label="Очистить" tabindex="0" @click="clearFilters" />
+          <Button label="Clear" tabindex="0" @click="clearFilters" />
         </div>
       </div>
     </section>
 
-    <section id="products-section" aria-label="Список товаров">
+    <section id="products-section" aria-label="Product list">
       <div class="grid">
         <ClientOnly>
           <DeviceCard

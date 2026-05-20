@@ -12,12 +12,13 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@nuxt/eslint",
     "@nuxt/test-utils/module",
+    "nuxt-site-config",
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
   ],
   site: {
-    url: 'localhost:3000',
-    name: 'Nuxt Store',
+    url: `http://localhost:${process.env.PORT || 3000}`,
+    name: "Nuxt store"
   },
   sitemap: {
     enabled: true,
@@ -28,7 +29,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        lang: 'ru'
+        lang: 'en'
       },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',

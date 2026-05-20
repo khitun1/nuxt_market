@@ -61,10 +61,10 @@ const clear = async () => {
 };
 
 useSeoMeta({
-  title: 'Корзина | Nuxt Store',
-  ogTitle: 'Корзина | Nuxt Store',
-  description: 'Ваш список покупок в Nuxt Store. Проверьте товары и оформите заказ.',
-  ogDescription: 'Ваш список покупок в Nuxt Store. Проверьте товары и оформите заказ.',
+  title: 'Cart | Nuxt Store',
+  ogTitle: 'Cart | Nuxt Store',
+  description: 'Your shopping list at Nuxt Store. Check your items and place your order.',
+  ogDescription: 'Your shopping list at Nuxt Store. Check your items and place your order.',
   robots: 'noindex, nofollow',
 })
 </script>

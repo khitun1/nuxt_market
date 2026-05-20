@@ -39,7 +39,7 @@ const signOut = async (): Promise<void> => {
 </script>
 
 <template>
-  <nav aria-label="Основная навигация">
+  <nav aria-label="Main navigation">
     <Menubar :model="items">
       <template #item="{ item }">
         <span
