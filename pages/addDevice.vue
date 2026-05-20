@@ -34,6 +34,11 @@ const features: Ref<Feature[]> = ref<Feature[]>([
 const type = ref(deviceStore.getTypes[0]);
 const brand = ref(deviceStore.getBrands[0]);
 
+useSeoMeta({
+  title: 'Добавить товар | Панель управления',
+  robots: 'noindex, nofollow',
+})
+
 const newType = ref("");
 const newBrand = ref("");
 

@@ -4,6 +4,13 @@ import { useDeviceStore } from "@store/device";
 const deviceStore = useDeviceStore();
 const route = useRoute();
 await deviceStore.getDeviceApi(Number(route.query.id));
+
+useSeoMeta({
+  title: () => `${deviceStore.device?.name || 'Товар'} | Nuxt Store`,
+  ogTitle: () => `${deviceStore.device?.name || 'Товар'} | Nuxt Store`,
+  description: () => `Купить ${deviceStore.device?.name || 'товар'} по выгодной цене в Nuxt Store.`,
+  ogDescription: () => `Купить ${deviceStore.device?.name || 'товар'} по выгодной цене в Nuxt Store.`,
+})
 </script>
 
 <template>

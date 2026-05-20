@@ -12,11 +12,32 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@nuxt/eslint",
     "@nuxt/test-utils/module",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
   ],
+  site: {
+    url: 'localhost:3000',
+    name: 'Nuxt Store',
+  },
+  sitemap: {
+    enabled: true,
+  },
+  robots: {
+    enabled: true,
+  },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'ru'
+      },
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    }
+  },
   primevue: {
     options: {
       ripple: true,
-      styled: true,
+      unstyled: false,
       theme: {
         preset: Aura,
         options: {

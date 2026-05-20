@@ -39,7 +39,7 @@ const signOut = async (): Promise<void> => {
 </script>
 
 <template>
-  <div>
+  <nav aria-label="Основная навигация">
     <Menubar :model="items">
       <template #item="{ item }">
         <span
@@ -99,7 +99,7 @@ const signOut = async (): Promise<void> => {
         </div>
       </template>
     </Menubar>
-  </div>
+  </nav>
 </template>
 
 <style scoped></style>

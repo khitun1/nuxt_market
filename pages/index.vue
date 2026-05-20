@@ -47,80 +47,114 @@ const clearFilters = async () => {
   searchDevice.value = "";
   await deviceStore.getDevicesApi();
 };
+
+useSeoMeta({
+  title: 'Главная | Nuxt Store',
+  ogTitle: 'Главная | Nuxt Store',
+  description: 'Добро пожаловать в наш магазин электроники. Лучшие товары по выгодным ценам.',
+  ogDescription: 'Добро пожаловать в наш магазин электроники. Лучшие товары по выгодным ценам.',
+})
 </script>
 
 <template>
-  <div>
-    <form id="searchForm" @submit.prevent="test">
-      <InputText
-        id="search"
-        v-model="searchDevice"
-        placeholder="Input product's name"
-        tabindex="0"
-        list="devicesList"
-      />
-      <datalist id="devicesList">
-        <template v-for="device in deviceStore.devices" :key="device.name">
-          <option v-if="searchDevice">
-            {{ device.name }}
-          </option>
-        </template>
-      </datalist>
-      <Button label="Search" icon="pi pi-search" type="submit" tabindex="0" />
-    </form>
-    <div id="filters">
-      <div>
-        <label for="searchType"> Type: </label>
-        <select id="searchType" v-model="searchType" @change="getDevices">
-          <option />
-          <option
-            v-for="type in deviceStore.getTypes"
-            :key="type.id"
-            :value="type"
-          >
-            {{ type.name }}
-          </option>
-        </select>
-      </div>
-      <div>
-        <label for="searchBrand"> Brand: </label>
-        <select id="searchBrand" v-model="searchBrand" @change="getDevices">
-          <option />
-          <option
-            v-for="brand in deviceStore.getBrands"
-            :key="brand.id"
-            :value="brand"
-          >
-            {{ brand.name }}
-          </option>
-        </select>
-      </div>
-      <div>
-        <Button label="Clear" tabindex="0" @click="clearFilters" />
-      </div>
-    </div>
-    <div class="grid">
-      <ClientOnly>
-        <DeviceCard
-          v-for="device in deviceStore.devices"
-          :id="device.id"
-          :key="device.id"
+  <div class="container">
+    <h1 class="visually-hidden">Каталог электроники Nuxt Store</h1>
+    
+    <section id="search-section" aria-label="Поиск товаров">
+      <form id="searchForm" @submit.prevent="test">
+        <InputText
+          id="search"
+          v-model="searchDevice"
+          placeholder="Введите название товара..."
           tabindex="0"
-          :name="device.name"
-          :price="device.price"
-          :img="device.img"
-          :rating="device.rating"
-          @open="() => open(device.id)"
-          @add-to-cart="() => addItem(device.id)"
-          @remove-item="() => removeItem(device.id)"
+          list="devicesList"
         />
-      </ClientOnly>
-    </div>
+        <datalist id="devicesList">
+          <template v-for="device in deviceStore.devices" :key="device.name">
+            <option v-if="searchDevice">
+              {{ device.name }}
+            </option>
+          </template>
+        </datalist>
+        <Button label="Найти" icon="pi pi-search" type="submit" tabindex="0" />
+      </form>
+    </section>
+
+    <section id="filters-section" aria-label="Фильтры товаров">
+      <div id="filters">
+        <div>
+          <label for="searchType">Тип:</label>
+          <select id="searchType" v-model="searchType" @change="getDevices">
+            <option value="">Все типы</option>
+            <option
+              v-for="type in deviceStore.getTypes"
+              :key="type.id"
+              :value="type"
+            >
+              {{ type.name }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label for="searchBrand">Бренд:</label>
+          <select id="searchBrand" v-model="searchBrand" @change="getDevices">
+            <option value="">Все бренды</option>
+            <option
+              v-for="brand in deviceStore.getBrands"
+              :key="brand.id"
+              :value="brand"
+            >
+              {{ brand.name }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <Button label="Очистить" tabindex="0" @click="clearFilters" />
+        </div>
+      </div>
+    </section>
+
+    <section id="products-section" aria-label="Список товаров">
+      <div class="grid">
+        <ClientOnly>
+          <DeviceCard
+            v-for="device in deviceStore.devices"
+            :id="device.id"
+            :key="device.id"
+            tabindex="0"
+            :name="device.name"
+            :price="device.price"
+            :img="device.img"
+            :rating="device.rating"
+            @open="() => open(device.id)"
+            @add-to-cart="() => addItem(device.id)"
+            @remove-item="() => removeItem(device.id)"
+          />
+        </ClientOnly>
+      </div>
+    </section>
   </div>
 </template>
 
 <style scoped lang="scss">
 $red: red;
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  padding-bottom: 20px;
+}
 
 .grid {
   margin-top: 20px;

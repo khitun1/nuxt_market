@@ -59,6 +59,14 @@ const clear = async () => {
   await basketStore.clear();
   // await updateCart();
 };
+
+useSeoMeta({
+  title: 'Корзина | Nuxt Store',
+  ogTitle: 'Корзина | Nuxt Store',
+  description: 'Ваш список покупок в Nuxt Store. Проверьте товары и оформите заказ.',
+  ogDescription: 'Ваш список покупок в Nuxt Store. Проверьте товары и оформите заказ.',
+  robots: 'noindex, nofollow',
+})
 </script>
 
 <template>
