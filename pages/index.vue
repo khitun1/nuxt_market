@@ -49,17 +49,19 @@ const clearFilters = async () => {
 };
 
 useSeoMeta({
-  title: 'Home | Nuxt Store',
-  ogTitle: 'Home | Nuxt Store',
-  description: 'Welcome to our electronics store. Best products at great prices.',
-  ogDescription: 'Welcome to our electronics store. Best products at great prices.',
-})
+  title: "Home | Nuxt Store",
+  ogTitle: "Home | Nuxt Store",
+  description:
+    "Welcome to our electronics store. Best products at great prices.",
+  ogDescription:
+    "Welcome to our electronics store. Best products at great prices.",
+});
 </script>
 
 <template>
   <div class="container">
     <h1 class="visually-hidden">Nuxt Store Electronics Catalog</h1>
-    
+
     <section id="search-section" aria-label="Product search">
       <form id="searchForm" @submit.prevent="test">
         <InputText

@@ -4,12 +4,14 @@ import { useUserStore } from "@store";
 const store = useUserStore();
 
 useSeoMeta({
-  title: 'Login / Register | Nuxt Store',
-  ogTitle: 'Login / Register | Nuxt Store',
-  description: 'Log in to your Nuxt Store account to manage orders and your cart.',
-  ogDescription: 'Log in to your Nuxt Store account to manage orders and your cart.',
-  robots: 'noindex, nofollow',
-})
+  title: "Login / Register | Nuxt Store",
+  ogTitle: "Login / Register | Nuxt Store",
+  description:
+    "Log in to your Nuxt Store account to manage orders and your cart.",
+  ogDescription:
+    "Log in to your Nuxt Store account to manage orders and your cart.",
+  robots: "noindex, nofollow",
+});
 </script>
 
 <template>

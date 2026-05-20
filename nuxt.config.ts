@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   ],
   site: {
     url: `http://localhost:${process.env.PORT || 3000}`,
-    name: "Nuxt store"
+    name: "Nuxt store",
   },
   sitemap: {
     enabled: true,
@@ -29,11 +29,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        lang: 'en'
+        lang: "en",
       },
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-    }
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+    },
   },
   primevue: {
     options: {

@@ -6,11 +6,13 @@ const route = useRoute();
 await deviceStore.getDeviceApi(Number(route.query.id));
 
 useSeoMeta({
-  title: () => `${deviceStore.device?.name || 'Product'} | Nuxt Store`,
-  ogTitle: () => `${deviceStore.device?.name || 'Product'} | Nuxt Store`,
-  description: () => `Buy ${deviceStore.device?.name || 'product'} at a great price in Nuxt Store.`,
-  ogDescription: () => `Buy ${deviceStore.device?.name || 'product'} at a great price in Nuxt Store.`,
-})
+  title: () => `${deviceStore.device?.name || "Product"} | Nuxt Store`,
+  ogTitle: () => `${deviceStore.device?.name || "Product"} | Nuxt Store`,
+  description: () =>
+    `Buy ${deviceStore.device?.name || "product"} at a great price in Nuxt Store.`,
+  ogDescription: () =>
+    `Buy ${deviceStore.device?.name || "product"} at a great price in Nuxt Store.`,
+});
 </script>
 
 <template>
