@@ -8,8 +8,8 @@
   <footer class="footer">
     <div class="footer-content">
       <p>
-        &copy; {{ new Date().getFullYear() }} Nuxt Store. Электроника по лучшим
-        ценам.
+        &copy; {{ new Date().getFullYear() }} Nuxt Store. Electronics at the
+        best prices.
       </p>
     </div>
   </footer>
@@ -19,10 +19,11 @@
 import "primeicons/primeicons.css";
 
 useSeoMeta({
-  title: "Nuxt Store — Электроника по лучшим ценам",
-  ogTitle: "Nuxt Store — Магазин электроники",
-  description: "Широкий выбор смартфонов, ноутбуков и аксессуаров с доставкой.",
-  ogDescription: "Покупайте электронику по выгодным ценам в нашем магазине.",
+  title: "Nuxt Store — Electronics at the best prices",
+  ogTitle: "Nuxt Store — Electronics Store",
+  description:
+    "Wide selection of smartphones, laptops and accessories with delivery.",
+  ogDescription: "Buy electronics at great prices in our store.",
   ogImage: "https://vibekodik.ru/og-image.png",
   twitterCard: "summary_large_image",
 });

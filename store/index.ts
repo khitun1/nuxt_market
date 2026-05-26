@@ -2,7 +2,6 @@ import { defineStore, type StoreDefinition } from "pinia";
 import { jwtDecode } from "jwt-decode";
 import { $api } from "~/http";
 import type { UserState } from "~/types/states";
-import type { FetchError } from "ofetch";
 import { useCookie } from "#app";
 
 type UserGetters = {
@@ -57,14 +56,13 @@ export const useUserStore: StoreDefinition<
           this.login = true;
           return true;
         }
-      } catch (e) {
+      } catch {
         this.user = null;
         this.login = false;
-        const fetchError = e as FetchError;
         this.toast.add({
           severity: "error",
           summary: "Error",
-          detail: fetchError.message,
+          detail: "Failed to log in. Please check your credentials.",
           life: 3000,
         });
       } finally {
@@ -91,12 +89,11 @@ export const useUserStore: StoreDefinition<
           this.login = true;
           return true;
         }
-      } catch (e) {
-        const fetchError = e as FetchError;
+      } catch {
         this.toast.add({
           severity: "error",
           summary: "Error",
-          detail: fetchError.message,
+          detail: "Failed to sign up. User might already exist.",
           life: 3000,
         });
       } finally {
@@ -113,14 +110,13 @@ export const useUserStore: StoreDefinition<
           this.user = jwtDecode(token);
           this.login = true;
         }
-      } catch (e) {
+      } catch {
         this.user = null;
         this.login = false;
-        const fetchError = e as FetchError;
         this.toast.add({
           severity: "error",
           summary: "Error",
-          detail: fetchError.message,
+          detail: "Session expired. Please log in again.",
           life: 3000,
         });
       } finally {
@@ -135,12 +131,11 @@ export const useUserStore: StoreDefinition<
         });
         this.user = null;
         this.login = false;
-      } catch (e) {
-        const fetchError = e as FetchError;
+      } catch {
         this.toast.add({
           severity: "error",
           summary: "Error",
-          detail: fetchError.message,
+          detail: "Failed to sign out. Please try again.",
           life: 3000,
         });
       }

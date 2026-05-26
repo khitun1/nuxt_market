@@ -1,4 +1,7 @@
 export const $api = $fetch.create({
-  baseURL: "http://localhost:5175/api/",
+  onRequest({ options }) {
+    const config = useRuntimeConfig();
+    options.baseURL = config.public.backendUrl;
+  },
   credentials: "include",
 });

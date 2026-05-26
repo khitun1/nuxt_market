@@ -7,12 +7,18 @@ export default defineNuxtRouteMiddleware(async () => {
   const store = useUserStore();
   const basketStore = useBasketStore();
 
+  const promises = [];
+
   if (!store.isInitialized) {
-    await store.auth(headers);
+    promises.push(store.auth(headers));
   }
 
   if (!basketStore.isInitialized) {
-    await basketStore.createBasket(headers);
-    await basketStore.getBasketId(headers);
+    promises.push(basketStore.createBasket(headers));
+    promises.push(basketStore.getBasketId(headers));
+  }
+
+  if (promises.length > 0) {
+    await Promise.all(promises);
   }
 });

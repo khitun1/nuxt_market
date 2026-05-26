@@ -56,9 +56,7 @@ describe("Basket store", () => {
     });
 
     it("error", async () => {
-      const errorMsg = "request failed";
-
-      vi.mocked($api).mockRejectedValue({ message: errorMsg });
+      vi.mocked($api).mockRejectedValue(new Error("Technical error"));
 
       await basketStore.getBasketId();
 
@@ -67,7 +65,7 @@ describe("Basket store", () => {
       expect(basketStore.toast.add).toHaveBeenCalledWith(
         expect.objectContaining({
           severity: "error",
-          detail: errorMsg,
+          detail: "Failed to load basket.",
         }),
       );
       expect(basketStore.isInitialized).toBeTruthy();
@@ -87,9 +85,7 @@ describe("Basket store", () => {
     });
 
     it("error", async () => {
-      const errorMsg = "Request failed";
-
-      vi.mocked($api).mockRejectedValue({ message: errorMsg });
+      vi.mocked($api).mockRejectedValue(new Error("Technical error"));
 
       await basketStore.addItem(11);
 
@@ -98,7 +94,7 @@ describe("Basket store", () => {
       expect(basketStore.toast.add).toHaveBeenCalledWith(
         expect.objectContaining({
           severity: "error",
-          detail: errorMsg,
+          detail: "Failed to add item to basket.",
         }),
       );
     });
@@ -115,16 +111,14 @@ describe("Basket store", () => {
     });
 
     it("error", async () => {
-      const errorMsg = "Request failed";
-
-      vi.mocked($api).mockRejectedValue({ message: errorMsg });
+      vi.mocked($api).mockRejectedValue(new Error("Technical error"));
 
       await basketStore.clear();
 
       expect(basketStore.toast.add).toHaveBeenCalledWith(
         expect.objectContaining({
           severity: "error",
-          detail: errorMsg,
+          detail: "Failed to clear basket.",
         }),
       );
     });

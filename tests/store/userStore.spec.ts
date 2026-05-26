@@ -49,9 +49,7 @@ describe("User store", () => {
     });
 
     it("error", async () => {
-      const errorMsg = "Request failed";
-
-      vi.mocked($api).mockRejectedValue({ message: errorMsg });
+      vi.mocked($api).mockRejectedValue(new Error("Technical error"));
 
       await userStore.auth();
 
@@ -61,7 +59,7 @@ describe("User store", () => {
       expect(userStore.toast.add).toHaveBeenCalledWith(
         expect.objectContaining({
           severity: "error",
-          detail: errorMsg,
+          detail: "Session expired. Please log in again.",
         }),
       );
     });
@@ -83,16 +81,14 @@ describe("User store", () => {
     });
 
     it("error", async () => {
-      const errorMsg = "Request failed";
-
-      vi.mocked($api).mockRejectedValue({ message: errorMsg });
+      vi.mocked($api).mockRejectedValue(new Error("Technical error"));
 
       await userStore.logIn("user", "Qwerty");
 
       expect(userStore.toast.add).toHaveBeenCalledWith(
         expect.objectContaining({
           severity: "error",
-          detail: errorMsg,
+          detail: "Failed to log in. Please check your credentials.",
         }),
       );
     });

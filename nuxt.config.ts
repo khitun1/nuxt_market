@@ -5,7 +5,7 @@ import { resolve } from "path";
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV === "development" },
   modules: [
     "@pinia/nuxt",
     "@nuxtjs/tailwindcss",
@@ -15,7 +15,18 @@ export default defineNuxtConfig({
     "nuxt-site-config",
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
+    "nuxt-security",
   ],
+  security: {
+    headers: {
+      contentSecurityPolicy: {
+        "script-src": ["'self'", "'strict-dynamic'", "'nonce-{{nonce}}'"],
+        "style-src": ["'self'", "'unsafe-inline'"],
+        "base-uri": ["'none'"],
+        "object-src": ["'none'"],
+      },
+    },
+  },
   site: {
     url: `http://localhost:${process.env.PORT || 3000}`,
     name: "Nuxt store",

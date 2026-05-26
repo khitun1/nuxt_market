@@ -4,7 +4,6 @@ import type { DeviceState } from "~/types/states";
 import type { Type } from "~/types/type";
 import type { Brand } from "~/types/brand";
 import type { Device, DeviceInfo } from "~/types/device";
-import type { FetchError } from "ofetch";
 
 type DeviceGetters = {
   getTypes: () => Type[];
@@ -64,12 +63,11 @@ export const useDeviceStore: StoreDefinition<
             },
           });
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to create category.",
             life: 3000,
           });
         }
@@ -78,12 +76,11 @@ export const useDeviceStore: StoreDefinition<
       async getTypesApi(): Promise<void> {
         try {
           this.types = await $api("type/getAll");
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to load categories.",
             life: 3000,
           });
         } finally {
@@ -94,12 +91,11 @@ export const useDeviceStore: StoreDefinition<
       async getBrandsApi(): Promise<void> {
         try {
           this.brands = await $api("brand/getAll");
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to load brands.",
             life: 3000,
           });
         } finally {
@@ -116,12 +112,11 @@ export const useDeviceStore: StoreDefinition<
             },
           });
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to create brand.",
             life: 3000,
           });
         }
@@ -134,12 +129,11 @@ export const useDeviceStore: StoreDefinition<
             body: form,
           });
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to create device.",
             life: 3000,
           });
         }
@@ -209,12 +203,11 @@ export const useDeviceStore: StoreDefinition<
             },
           });
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to load devices.",
             life: 3000,
           });
         }
@@ -228,12 +221,11 @@ export const useDeviceStore: StoreDefinition<
             },
           });
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Error searching for devices.",
             life: 3000,
           });
         }
@@ -252,12 +244,11 @@ export const useDeviceStore: StoreDefinition<
           this.device = res.device;
           this.deviceInfo = res.info;
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to load device details.",
             life: 3000,
           });
         }

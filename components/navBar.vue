@@ -50,7 +50,7 @@ const signOut = async (): Promise<void> => {
         />
         <NuxtLink
           v-if="
-            item.label !== 'Add device' || (store.login && store.user.isAdmin)
+            item.label !== 'Add device' || (store.login && store.user?.isAdmin)
           "
           :to="item.to"
           class="ml-1 mr-5"

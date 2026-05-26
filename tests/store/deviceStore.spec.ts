@@ -55,17 +55,13 @@ describe("Device store", () => {
     });
 
     it("error", async () => {
-      const message = "Request failed";
-
-      vi.mocked($api).mockRejectedValue({
-        message,
-      });
+      vi.mocked($api).mockRejectedValue(new Error("Technical error"));
       await deviceStore.getDeviceApi(42);
 
       expect(deviceStore.toast.add).toHaveBeenCalledWith(
         expect.objectContaining({
           severity: "error",
-          detail: message,
+          detail: "Failed to load device details.",
         }),
       );
     });

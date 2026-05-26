@@ -1,9 +1,9 @@
 import { useUserStore } from "@store";
 
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async () => {
   const store = useUserStore();
 
-  if (store.user === null && from.path !== "/") {
+  if (store.user === null || !store.user.isAdmin) {
     return navigateTo("/");
   }
 });

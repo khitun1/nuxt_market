@@ -1,7 +1,6 @@
 import { defineStore, type StoreDefinition } from "pinia";
 import type { BasketState } from "~/types/states";
 import { $api } from "~/http";
-import type { FetchError } from "ofetch";
 
 type BasketGetters = {
   getDevices: () => number[];
@@ -50,14 +49,13 @@ export const useBasketStore: StoreDefinition<
           this.id = res.idBasket;
           this.devicesId = res.devices;
           return true;
-        } catch (e) {
+        } catch {
           this.id = null;
           this.devicesId = [];
-          const fetchError = e as FetchError;
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to load basket.",
             life: 3000,
           });
         } finally {
@@ -75,12 +73,11 @@ export const useBasketStore: StoreDefinition<
           });
           this.devicesId = res.devices;
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to add item to basket.",
             life: 3000,
           });
         }
@@ -98,12 +95,11 @@ export const useBasketStore: StoreDefinition<
 
           this.devicesId = res.devices;
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to remove item.",
             life: 3000,
           });
         }
@@ -119,12 +115,11 @@ export const useBasketStore: StoreDefinition<
           });
           this.devicesId = res.devices;
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to delete item from basket.",
             life: 3000,
           });
         }
@@ -140,12 +135,11 @@ export const useBasketStore: StoreDefinition<
           });
           this.devicesId = [];
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to clear basket.",
             life: 3000,
           });
         }
@@ -163,12 +157,11 @@ export const useBasketStore: StoreDefinition<
           });
           basketCookie.value = res;
           return true;
-        } catch (e) {
-          const fetchError = e as FetchError;
+        } catch {
           this.toast.add({
             severity: "error",
             summary: "Error",
-            detail: fetchError.message,
+            detail: "Failed to create basket.",
             life: 3000,
           });
         } finally {

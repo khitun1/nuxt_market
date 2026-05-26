@@ -184,7 +184,7 @@ const createDevice = async (): Promise<void> => {
             <option v-if="deviceStore.getTypes.length !== 0" :value="t">
               {{ t.name }}
             </option>
-            <option v-else disabled>None types</option>
+            <option v-else disabled>No types</option>
           </template>
         </select>
         <Button id="showCreateType" tabindex="0" @click="showType">
@@ -226,7 +226,7 @@ const createDevice = async (): Promise<void> => {
             <option v-if="deviceStore.getBrands.length !== 0" :value="b">
               {{ b.name }}
             </option>
-            <option v-else disabled>None brands</option>
+            <option v-else disabled>No brands</option>
           </template>
         </select>
         <Button tabindex="0" @click="visibleBrand = true"> Add brand </Button>
